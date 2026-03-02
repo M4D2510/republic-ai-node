@@ -116,3 +116,33 @@ See [AUTO-COMPUTE.md](AUTO-COMPUTE.md) for setup instructions.
 - You cannot process or submit results for jobs sent to other validators
 - Make sure HTTP server is running: `cd /var/lib/republic/jobs && python3 -m http.server 8080 &`
 - Validator must be BONDED to submit results
+
+---
+
+## 5. Sending a Job to Another Validator
+
+You can send a job to any validator on the network by using their valoper address:
+```bash
+republicd tx computevalidation submit-job \
+  TARGET_VALOPER_ADDRESS \
+  republic-llm-inference:latest \
+  http://YOUR_SERVER_IP:8080/upload \
+  http://YOUR_SERVER_IP:8080/result \
+  example-verification:latest \
+  1000000000000000000arai \
+  --from wallet \
+  --home $HOME/.republicd \
+  --chain-id raitestnet_77701-1 \
+  --gas auto \
+  --gas-adjustment 1.5 \
+  --gas-prices 1000000000arai \
+  --node tcp://localhost:43657 \
+  -y
+```
+
+### Notes
+- Replace TARGET_VALOPER_ADDRESS with the validator's raivaloper address
+- Replace YOUR_SERVER_IP with your own server's public IP
+- The upload and fetch endpoints must be hosted on YOUR server
+- Only the target validator can process and submit the result
+- Fee: 1 RAI per job
