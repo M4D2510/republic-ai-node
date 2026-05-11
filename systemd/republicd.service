@@ -1,0 +1,22 @@
+[Unit]
+Description=Republic AI validator daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/republicd start --home /root/.republicd
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=republicd
+
+# Resource limits
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target
