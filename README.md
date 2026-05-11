@@ -1,24 +1,46 @@
-# Republic AI Testnet Node Setup
+# republic-ai-node
 
-## Node Info
-- Chain ID: raitestnet_77701-1
-- Binary: v0.3.0
-- Cosmovisor: v1.7.1
+Operations notes, runbooks, and helper scripts for running a
+Republic AI validator.
 
-## Network Endpoints
-- RPC: https://rpc.republicai.io
-- Explorer: https://explorer.republicai.io
+## What is here
 
-## Setup
-- Ubuntu 22.04
-- Go 1.22.3
-- patchelf (GLIBC 2.39 compatibility)
+### Runbooks
+- [SETUP.md](SETUP.md) - initial validator setup
+- [GETTING-STARTED.md](GETTING-STARTED.md) - quick orientation
+- [LOCAL-RPC.md](LOCAL-RPC.md) - local RPC endpoint
+- [MIGRATION.md](MIGRATION.md) - chain migrations
+- [POINTS.md](POINTS.md) - points and rewards
+- [TIPS.md](TIPS.md) - operational tips
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - common issues
 
-## Compute Setup
-- GPU: NVIDIA RTX 3090 (24GB VRAM)
-- Docker with CUDA 11.8
-- First compute job on testnet (Job ID: 10)
+### Topic deep-dives
+- [INFRASTRUCTURE.md](INFRASTRUCTURE.md) - Vast.ai + AWS topology
+- [MIGRATION-VAST-AWS.md](MIGRATION-VAST-AWS.md) - cross-host migration
+- [CLOUDFLARE-TUNNEL.md](CLOUDFLARE-TUNNEL.md) - dynamic IP tunnel
+- [STATE-SYNC.md](STATE-SYNC.md) - fast bootstrap
+- [UNJAIL.md](UNJAIL.md) - jail recovery
+- [MONITORING.md](MONITORING.md) - alerting strategy
+- [BACKUP-RECOVERY.md](BACKUP-RECOVERY.md) - disaster recovery
+- [SECURITY.md](SECURITY.md) - key and host security
+- [ARCHITECTURE.md](ARCHITECTURE.md) - component layout
+- [UPGRADES.md](UPGRADES.md) - chain upgrade procedure
+- [FAQ.md](FAQ.md) - common questions
 
-## GPU vs CPU Performance
-- CPU inference: ~77 seconds
-- GPU inference: ~8 seconds (10x faster)
+### Compute docs
+See [compute/](compute/) for GPU compute jobs and Docker setup.
+
+### Scripts
+See [scripts/](scripts/) for health checks, disk cleanup, peer
+updates, state sync, unjail, backup, monitoring, delegation,
+reward withdrawal, and more.
+
+### Templates
+- [systemd/](systemd/) - service unit files
+- [.github/](.github/) - issue and PR templates
+
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+[MIT](LICENSE)
