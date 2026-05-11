@@ -1,0 +1,57 @@
+# Validator state - NEVER commit these
+*priv_validator_key*
+*priv_validator_state*
+*node_key*
+*.pem
+*.key
+*.secret
+
+# Local config with secrets
+.env
+.env.local
+*.local.toml
+
+# Backups (handled by scripts/backup.sh)
+*.tar.gz
+*.bak
+*.bak.*
+validator-backups/
+
+# Logs
+*.log
+*.out
+journal/
+
+# Build artifacts
+build/
+dist/
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Editor files
+*~
+*.tmp
+
+# Python / virtualenv
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Node
+node_modules/
+package-lock.json
+
+# Test outputs
+coverage/
+.nyc_output/
+
+# Tunnel credentials
+.cloudflared/
+*.tunnel.json
